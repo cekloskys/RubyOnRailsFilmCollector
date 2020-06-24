@@ -1,0 +1,23 @@
+<h1>View <%= pluralize(@actors.count, "Actor") %></h1>
+<table class="table table-striped">
+	<thead>
+		<tr>
+			<th scope="col">First Name</th>
+			<th scope="col">Last Name</th>
+			<th scope="col">Actions</th>
+		</tr>
+	</thead>
+	<tbody>
+		<% @actors.each do |actor| %>
+		<tr>
+			<td><%= actor.first_name %></td>
+			<td><%= actor.last_name %></td>
+			<td><a href="/actors/<%= actor.id %>">Show</a> |
+				<a href="/actors/<%= actor.id %>/edit">Edit</a> | 				
+				<a href="/actors/<%= actor.id %>" data-method="delete" data-confirm="Are you sure?">Delete</a>
+			</td>
+		</tr>
+		<% end %>
+	</tbody>
+</table>
+<!-- <a href="/actors/new">Create Actor</a> -->
